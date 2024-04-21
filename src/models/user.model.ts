@@ -6,10 +6,10 @@ interface IUser {
   password: string;
   isAdmin: boolean;
   isVerified: boolean;
-  forgotPasswordToken?: string;
-  forgotPasswordTokenExpiry?: Date;
-  verifyToken?: string;
-  verifyTokenExpiry?: Date;
+  forgotPasswordToken?: string | undefined;
+  forgotPasswordTokenExpiry?: Date | undefined;
+  verifyToken?: string | undefined;
+  verifyTokenExpiry?: Date | undefined;
 }
 
 const userSchema = new mongoose.Schema<IUser>(

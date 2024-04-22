@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from "next/server";
 connect();
 
 export async function GET(request: NextRequest) {
-  const id = getId(request);
+  const id: string | undefined = await getId(request);
   if (id === undefined) {
     return NextResponse.json({
       message: "Could not fetch data",

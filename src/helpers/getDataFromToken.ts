@@ -8,10 +8,10 @@ export const getId = async (request: NextRequest) => {
       token,
       process.env.TOKEN_SECRET!
     );
-    return decodedToken.id;
+    const id: string = decodedToken.id;
+
+    return id;
   } catch (error) {
-    console.log(error);
-    // return NextResponse.json({ message: "Could not get token", status: 500 });
     return undefined;
   }
 };

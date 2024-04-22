@@ -21,21 +21,20 @@ function Page() {
     }
   };
 
-  const fetchData = async () => {
-    try {
-      const res = await axios.get("/api/users/me");
-      console.log("inside me", res.data.data);
-      const val: string = res.data.data.username;
-      setData(val);
-    } catch (error: any) {
-      console.log(error);
-      toast.error(error.message);
-    }
-  };
-  fetchData();
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("/api/users/me");
+        console.log("inside me", res.data.data);
+        const val: any = res.data.data.username;
+        setData(val);
+      } catch (error: any) {
+        console.log(error);
+        toast.error(error.message);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <div className="min-h-screen flex flex-col gap-4 justify-center items-center">
       <Toaster />

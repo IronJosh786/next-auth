@@ -28,7 +28,8 @@ function Page() {
       const val: string = res.data.data.username;
       setData(val);
     } catch (error: any) {
-      toast.error(error.response.data.message);
+      console.log(error);
+      toast.error(error.message);
     }
   };
   fetchData();

@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
 
     response.cookies.set("uit", token, {
       httpOnly: true,
-      // secure: true,
+      secure: true,
     });
 
     return response;

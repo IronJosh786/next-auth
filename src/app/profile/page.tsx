@@ -24,6 +24,7 @@ function Page() {
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get("api/users/me");
+      console.log(res.data);
       setData(res.data.data.username);
     };
     fetchData();

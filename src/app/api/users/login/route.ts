@@ -35,13 +35,9 @@ export async function POST(request: NextRequest) {
       status: 200,
     });
 
-    const expirationDate = new Date();
-    expirationDate.setDate(expirationDate.getDate() + 1);
-
     response.cookies.set("uit", token, {
       httpOnly: true,
       secure: true,
-      expires: expirationDate,
     });
 
     return response;

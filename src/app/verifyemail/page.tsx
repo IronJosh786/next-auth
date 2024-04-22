@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Toaster, toast } from "sonner";
 import { useRouter as navRouter } from "next/navigation";
 
-function page() {
+function Page() {
   const [token, setToken] = useState("");
 
   const router = navRouter();
@@ -40,4 +40,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

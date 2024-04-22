@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 type Props = {};
 
-function page({}: Props) {
+function Page({}: Props) {
   const [data, setData] = useState({
     username: "",
     email: "",
@@ -74,4 +74,4 @@ function page({}: Props) {
   );
 }
 
-export default page;
+export default Page;

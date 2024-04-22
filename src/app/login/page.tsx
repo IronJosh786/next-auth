@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 type Props = {};
 
-function page({}: Props) {
+function Page({}: Props) {
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -64,4 +64,4 @@ function page({}: Props) {
   );
 }
 
-export default page;
+export default Page;

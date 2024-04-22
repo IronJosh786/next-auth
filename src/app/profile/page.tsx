@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 import { Toaster, toast } from "sonner";
 import { Button } from "@/components/ui/button";
 
-function page() {
+function Page() {
   const [data, setData] = useState("Default");
 
   const router = useRouter();
@@ -44,4 +44,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

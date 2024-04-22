@@ -7,6 +7,12 @@ connect();
 
 export async function GET(request: NextRequest) {
   const id = getId(request);
+  if (id === undefined) {
+    return NextResponse.json({
+      message: "Could not fetch data",
+      status: 400,
+    });
+  }
   const user = await User.findById(id).select("-password");
   if (!user) {
     return NextResponse.json({ message: "User not found", status: 404 });

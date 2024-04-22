@@ -8,6 +8,7 @@ export const getId = (request: NextRequest) => {
     return decodedToken.id;
   } catch (error) {
     console.log(error);
-    return NextResponse.json({ message: "Could not get token", status: 500 });
+    // return NextResponse.json({ message: "Could not get token", status: 500 });
+    return undefined;
   }
 };

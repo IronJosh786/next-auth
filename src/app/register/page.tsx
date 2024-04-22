@@ -18,7 +18,7 @@ function Page({}: Props) {
   const handleClick = async () => {
     const id = toast.loading("Loading");
     try {
-      await axios.post("api/users/register", data);
+      await axios.post("/api/users/register", data);
       toast.success("success");
       router.push("/login");
     } catch (error: any) {

@@ -14,25 +14,27 @@ function Page() {
 
   const logout = async () => {
     try {
-      const res = await axios.post("api/users/logout");
+      const res = await axios.post("/api/users/logout");
       router.push("/login");
     } catch (error: any) {
       toast.error(error.response.data.message);
     }
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get("/api/users/me");
-        const val: string = res.data.data.username;
-        setData(val);
-      } catch (error: any) {
-        toast.error(error.response.data.message);
-      }
-    };
-    fetchData();
-  }, []);
+  const fetchData = async () => {
+    try {
+      const res = await axios.get("/api/users/me");
+      console.log(res.data.data);
+      const val: string = res.data.data.username;
+      setData(val);
+    } catch (error: any) {
+      toast.error(error.response.data.message);
+    }
+  };
+  fetchData();
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
   return (
     <div className="min-h-screen flex flex-col gap-4 justify-center items-center">
       <Toaster />

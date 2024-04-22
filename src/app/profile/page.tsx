@@ -23,9 +23,13 @@ function Page() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get("api/users/me");
-      const val: string = res.data.data.username;
-      setData(val);
+      try {
+        const res = await axios.get("api/users/me");
+        const val: string = res.data.data.username;
+        setData(val);
+      } catch (error: any) {
+        toast.error(error.response.data.message);
+      }
     };
     fetchData();
   }, []);

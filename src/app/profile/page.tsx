@@ -24,7 +24,7 @@ function Page() {
   const fetchData = async () => {
     try {
       const res = await axios.get("/api/users/me");
-      console.log(res.data.data);
+      console.log("inside me", res.data.data);
       const val: string = res.data.data.username;
       setData(val);
     } catch (error: any) {

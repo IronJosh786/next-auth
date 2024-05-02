@@ -51,5 +51,6 @@ const userSchema = new mongoose.Schema<IUser>(
 
 // since nextjs doesn't know if the connection is for the first time or not we do it like this
 export const User =
-  mongoose.models.users || mongoose.model<IUser>("users", userSchema);
+  (mongoose.models?.users as mongoose.Model<IUser>) ||
+  mongoose.model<IUser>("users", userSchema);
 // 'users' is for code consistency

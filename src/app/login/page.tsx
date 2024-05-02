@@ -5,9 +5,7 @@ import { Toaster, toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
-type Props = {};
-
-function Page({}: Props) {
+function Page() {
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -18,12 +16,20 @@ function Page({}: Props) {
   const handleClick = async () => {
     const id = toast.loading("Loading");
     try {
-      await axios.post("/api/users/login", data);
+      const response = await axios.post("/api/users/login", {
+        email: data.email,
+        password: data.password,
+      });
+      // if (response.data.status >= 400) {
+      //   // return;
+      //   console.log(response.data);
+      // }
       toast.dismiss(id);
       toast.success("success");
       router.push("/profile");
     } catch (error: any) {
-      toast.error(error.response.data.message);
+      console.log(error);
+      toast.error(error.message);
     } finally {
       toast.dismiss(id);
     }
